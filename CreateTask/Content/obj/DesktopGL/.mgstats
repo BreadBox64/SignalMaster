@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"E:/CSP_CreateTask/CreateTask/Content/Arial24.spritefont","E:/CSP_CreateTask/CreateTask/Content/bin/DesktopGL/Arial24.xnb","LocalizedFontProcessor","SpriteFontContent",2497,937,0.2819927
+"E:/CSP_CreateTask/CreateTask/Content/Arial64.spritefont","E:/CSP_CreateTask/CreateTask/Content/bin/DesktopGL/Arial64.xnb","LocalizedFontProcessor","SpriteFontContent",2497,937,0.2870224
