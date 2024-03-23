@@ -10,6 +10,8 @@
         "dependencies": {
           "MonoGame.Content.Builder.Task": "3.8.1.303",
           "MonoGame.Extended": "3.8.0",
+          "MonoGame.Extended.Input": "3.8.0",
+          "MonoGame.Extended.Tweening": "3.8.0",
           "MonoGame.Framework.DesktopGL": "3.8.1.303"
         },
         "runtime": {
@@ -23,6 +25,28 @@
         },
         "runtime": {
           "lib/netstandard2.0/MonoGame.Extended.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "MonoGame.Extended.Input/3.8.0": {
+        "dependencies": {
+          "MonoGame.Extended": "3.8.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.Input.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "MonoGame.Extended.Tweening/3.8.0": {
+        "dependencies": {
+          "MonoGame.Extended": "3.8.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.Tweening.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -107,6 +131,20 @@
       "sha512": "sha512-FDPoUOFtslGNHCWSqjKD0C67RYN6Stb6NWnn+rkCmtkPBZlE6LvwuGyQBkHUkAMANO3LzO/Wsz9etMhwZLInqg==",
       "path": "monogame.extended/3.8.0",
       "hashPath": "monogame.extended.3.8.0.nupkg.sha512"
+    },
+    "MonoGame.Extended.Input/3.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-90RtzI6N+RCGHolI/yTwGT47vqSyr+IEe+yKxzm4/euc8rDVnbAwz4lRifkAEdHx29X3apD0Ui5ve0C/7yO7wQ==",
+      "path": "monogame.extended.input/3.8.0",
+      "hashPath": "monogame.extended.input.3.8.0.nupkg.sha512"
+    },
+    "MonoGame.Extended.Tweening/3.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RLKhmcPUVcdh5aXcMMUpww84i0Ed/upoTAljmU2vKWakbxKFljLic5hgKA6fNfFCVVn0Y1lqgVomEZNuaCkeWw==",
+      "path": "monogame.extended.tweening/3.8.0",
+      "hashPath": "monogame.extended.tweening.3.8.0.nupkg.sha512"
     },
     "MonoGame.Framework.DesktopGL/3.8.1.303": {
       "type": "package",

@@ -8,26 +8,17 @@ using MonoGame.Extended;
 
 namespace Signalmaster;
 
-public class Game1 : Game
-{
+public class Game1 : Game {
 	public enum Scene {
 		Menu,
 		Main,
 		Settings,
 	}
 
-	public enum ButtonID {
-		MenuPlay,
-		MenuLevel,
-		MenuEditor,
-		MenuSettings,
-		MenuExit,
-	}
-
 	static readonly Color colorBackground = new Color(50, 50, 50);
 	static readonly Color colorDisabled = new Color(100, 100, 100);
 
-	static SpriteFont josefinSans64px;
+	static SpriteFont JS64;
 
 	public Scene currentScene;
 	private int _width;
@@ -59,31 +50,47 @@ public class Game1 : Game
 		_graphics.ApplyChanges();
 		//_graphics.ToggleFullScreen();
 		currentScene = Scene.Menu;
+		UIManager.SetScreenSize(_width, _height);
+		ChangeScene(Scene.Menu);
 
 		_oldMouseState = Mouse.GetState();
 	}
 
 	protected override void LoadContent()	{
 		_spriteBatch = new SpriteBatch(GraphicsDevice);
-		_UIManager.init(_width, _height, _spriteBatch, Content);
+		UIManager.Init(_spriteBatch, Content);
 
 		// Load Fonts
-		josefinSans64px = Content.Load<SpriteFont>("JS64");
+		UIManager.LoadSpriteFonts(new string[] {"JS64"});
+		UIManager.LoadTextures(new string[] {"iconPlayClick", "iconPlayHover", "iconPlayNormal"});
+		JS64 = UIManager.GetFont("JS64");
 	}
 
 	protected override void Update(GameTime gameTime)	{
 		if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
 			Exit();
 
-		_UIManager.Update();
+		_UIManager.Update(gameTime);
 		base.Update(gameTime);
+	}
+
+	private void ChangeScene(Scene newScene) {
+		switch(newScene) {
+			case Scene.Menu:
+				_UIManager.AddUIElement(new UIIconButton(("iconPlayClick", "iconPlayHover", "iconPlayNormal"), (0, 0, 192, 192), true));
+				break;
+			case Scene.Main:
+				break;
+			case Scene.Settings:
+				break;
+		}
 	}
 
 	private void DrawMenuScene(GameTime gameTime) {
 		GraphicsDevice.Clear(colorBackground);
 		string title = "SignalMaster";
 		_spriteBatch.Begin();
-    _spriteBatch.DrawString(josefinSans64px, title, new Vector2((_width - josefinSans64px.MeasureString(title).X) / 2, 192), Color.White);
+    _spriteBatch.DrawString(JS64, title, new Vector2((_width - JS64.MeasureString(title).X) / 2, 192), Color.White);
 		_UIManager.Draw();
     _spriteBatch.End();
 	}
@@ -104,7 +111,7 @@ public class Game1 : Game
 			default:
 				GraphicsDevice.Clear(Color.Red);
 				_spriteBatch.Begin();
-				_spriteBatch.DrawString(josefinSans64px, "Uh oh", new Vector2(0, 0), Color.Black);
+				_spriteBatch.DrawString(JS64, "Uh oh", new Vector2(0, 0), Color.Black);
 				_spriteBatch.End();
 				break;
 		}

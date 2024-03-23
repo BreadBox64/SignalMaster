@@ -4,25 +4,13 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconFilledEditor.png</File>
-    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconFilledExit.png</File>
-    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconFilledLevel.png</File>
-    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconFilledPlay.png</File>
-    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconFilledSettings.png</File>
-    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconUnfilledEditor.png</File>
-    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconUnfilledExit.png</File>
-    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconUnfilledLevel.png</File>
-    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconUnfilledPlay.png</File>
-    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconUnfilledSettings.png</File>
+    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconPlayClick.png</File>
+    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconPlayHover.png</File>
+    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconPlayNormal.png</File>
     <File>E:/CSP_Signalmaster/Signalmaster/Content/JS64.spritefont</File>
+    <File>E:/CSP_Signalmaster/Signalmaster/Content/nullTexture.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

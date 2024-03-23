@@ -5,7 +5,7 @@
    width="24"
    version="1.1"
    id="svg408"
-   sodipodi:docname="play_arrow_FILL1_wght400_GRAD0_opsz24.svg"
+   sodipodi:docname="iconPlayClick.svg"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,8 +24,8 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="36.541667"
-     inkscape:cx="12.082098"
-     inkscape:cy="12.013683"
+     inkscape:cx="12.013683"
+     inkscape:cy="12.041049"
      inkscape:window-width="1920"
      inkscape:window-height="1057"
      inkscape:window-x="-8"
@@ -36,5 +36,5 @@
      d="m 86.48,-77.73279 v -804.53442 q 0,-33.03643 23.31984,-55.38461 Q 133.11968,-960 164.21279,-960 q 9.7166,0 20.40486,2.91498 10.68826,2.91498 20.40486,8.74494 l 633.52229,402.26721 q 17.4899,11.65991 26.2348,29.14979 8.7449,17.48988 8.7449,36.92308 0,19.4332 -8.7449,36.92308 -8.7449,17.48988 -26.2348,29.14979 L 205.02251,-11.65992 q -9.7166,5.82996 -20.40486,8.74494 Q 173.92939,0 164.21279,0 133.11968,0 109.79984,-22.34818 86.48,-44.69636 86.48,-77.73279 Z"
      fill="#ffffff"
      id="path406"
-     style="stroke-width:1.94332" />
+     style="stroke-width:1.94332;fill:#ffffff;fill-opacity:1" />
 </svg>

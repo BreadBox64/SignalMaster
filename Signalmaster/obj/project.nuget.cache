@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "FoLZCOGmgzAZ1YkaZGEUzc+qkVeer4/8tu5xLhWGXgK31fBcby+qebJAllAqwJ6i6mgUE9hI2sFpmzWUXh8Aew==",
+  "dgSpecHash": "1Pr5NdZMRuQXWXIf0Bfkfl2jopeSMOHHP1NAUN3QC7lWNUWY/wZy4vaWGk0S/bvE6LThS4LkviTp9dPKzzmf4w==",
   "success": true,
   "projectFilePath": "E:\\CSP_Signalmaster\\Signalmaster\\Signalmaster.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\eli13\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
     "C:\\Users\\eli13\\.nuget\\packages\\monogame.extended\\3.8.0\\monogame.extended.3.8.0.nupkg.sha512",
+    "C:\\Users\\eli13\\.nuget\\packages\\monogame.extended.input\\3.8.0\\monogame.extended.input.3.8.0.nupkg.sha512",
+    "C:\\Users\\eli13\\.nuget\\packages\\monogame.extended.tweening\\3.8.0\\monogame.extended.tweening.3.8.0.nupkg.sha512",
     "C:\\Users\\eli13\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512",
     "C:\\Users\\eli13\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
   ],

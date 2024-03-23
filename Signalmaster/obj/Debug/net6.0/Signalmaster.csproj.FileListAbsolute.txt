@@ -4,16 +4,6 @@ E:\CSP_Signalmaster\Signalmaster\obj\Debug\net6.0\Signalmaster.AssemblyInfoInput
 E:\CSP_Signalmaster\Signalmaster\obj\Debug\net6.0\Signalmaster.AssemblyInfo.cs
 E:\CSP_Signalmaster\Signalmaster\obj\Debug\net6.0\Signalmaster.csproj.CoreCompileInputs.cache
 E:\CSP_Signalmaster\Signalmaster\obj\Debug\net6.0\Signalmaster.sourcelink.json
-E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconFilledEditor.xnb
-E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconFilledExit.xnb
-E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconFilledLevel.xnb
-E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconFilledPlay.xnb
-E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconFilledSettings.xnb
-E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconUnfilledEditor.xnb
-E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconUnfilledExit.xnb
-E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconUnfilledLevel.xnb
-E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconUnfilledPlay.xnb
-E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconUnfilledSettings.xnb
 E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\JS64.xnb
 E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Signalmaster.exe
 E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Signalmaster.deps.json
@@ -37,3 +27,9 @@ E:\CSP_Signalmaster\Signalmaster\obj\Debug\net6.0\refint\Signalmaster.dll
 E:\CSP_Signalmaster\Signalmaster\obj\Debug\net6.0\Signalmaster.pdb
 E:\CSP_Signalmaster\Signalmaster\obj\Debug\net6.0\Signalmaster.genruntimeconfig.cache
 E:\CSP_Signalmaster\Signalmaster\obj\Debug\net6.0\ref\Signalmaster.dll
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\MonoGame.Extended.Input.dll
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\MonoGame.Extended.Tweening.dll
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\nullTexture.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconPlayClick.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconPlayHover.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconPlayNormal.xnb

@@ -1,12 +1,6 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"E:/CSP_Signalmaster/Signalmaster/Content/iconFilledEditor.png","E:/CSP_Signalmaster/Signalmaster/Content/bin/DesktopGL/Content/iconFilledEditor.xnb","TextureProcessor","Texture2DContent",1775,65621,0.1916206
-"E:/CSP_Signalmaster/Signalmaster/Content/iconFilledExit.png","E:/CSP_Signalmaster/Signalmaster/Content/bin/DesktopGL/Content/iconFilledExit.xnb","TextureProcessor","Texture2DContent",1361,36949,0.0311142
-"E:/CSP_Signalmaster/Signalmaster/Content/iconFilledLevel.png","E:/CSP_Signalmaster/Signalmaster/Content/bin/DesktopGL/Content/iconFilledLevel.xnb","TextureProcessor","Texture2DContent",1701,65621,0.0302433
-"E:/CSP_Signalmaster/Signalmaster/Content/iconFilledPlay.png","E:/CSP_Signalmaster/Signalmaster/Content/bin/DesktopGL/Content/iconFilledPlay.xnb","TextureProcessor","Texture2DContent",2646,147541,0.0362619
-"E:/CSP_Signalmaster/Signalmaster/Content/iconFilledSettings.png","E:/CSP_Signalmaster/Signalmaster/Content/bin/DesktopGL/Content/iconFilledSettings.xnb","TextureProcessor","Texture2DContent",1691,36949,0.0363996
-"E:/CSP_Signalmaster/Signalmaster/Content/iconUnfilledEditor.png","E:/CSP_Signalmaster/Signalmaster/Content/bin/DesktopGL/Content/iconUnfilledEditor.xnb","TextureProcessor","Texture2DContent",1787,65621,0.0353555
-"E:/CSP_Signalmaster/Signalmaster/Content/iconUnfilledExit.png","E:/CSP_Signalmaster/Signalmaster/Content/bin/DesktopGL/Content/iconUnfilledExit.xnb","TextureProcessor","Texture2DContent",1407,36949,0.0346764
-"E:/CSP_Signalmaster/Signalmaster/Content/iconUnfilledLevel.png","E:/CSP_Signalmaster/Signalmaster/Content/bin/DesktopGL/Content/iconUnfilledLevel.xnb","TextureProcessor","Texture2DContent",1764,65621,0.0335714
-"E:/CSP_Signalmaster/Signalmaster/Content/iconUnfilledPlay.png","E:/CSP_Signalmaster/Signalmaster/Content/bin/DesktopGL/Content/iconUnfilledPlay.xnb","TextureProcessor","Texture2DContent",3539,147541,0.0387668
-"E:/CSP_Signalmaster/Signalmaster/Content/iconUnfilledSettings.png","E:/CSP_Signalmaster/Signalmaster/Content/bin/DesktopGL/Content/iconUnfilledSettings.xnb","TextureProcessor","Texture2DContent",2473,65621,0.0400534
+"E:/CSP_Signalmaster/Signalmaster/Content/iconPlayClick.png","E:/CSP_Signalmaster/Signalmaster/Content/bin/DesktopGL/Content/iconPlayClick.xnb","TextureProcessor","Texture2DContent",3269,147541,0.2623751
+"E:/CSP_Signalmaster/Signalmaster/Content/iconPlayHover.png","E:/CSP_Signalmaster/Signalmaster/Content/bin/DesktopGL/Content/iconPlayHover.xnb","TextureProcessor","Texture2DContent",2646,147541,0.0344006
+"E:/CSP_Signalmaster/Signalmaster/Content/iconPlayNormal.png","E:/CSP_Signalmaster/Signalmaster/Content/bin/DesktopGL/Content/iconPlayNormal.xnb","TextureProcessor","Texture2DContent",3539,147541,0.031507
 "E:/CSP_Signalmaster/Signalmaster/Content/JS64.spritefont","E:/CSP_Signalmaster/Signalmaster/Content/bin/DesktopGL/Content/JS64.xnb","FontDescriptionProcessor","SpriteFontContent",2084,267295,0.3139727
+"E:/CSP_Signalmaster/Signalmaster/Content/nullTexture.png","E:/CSP_Signalmaster/Signalmaster/Content/bin/DesktopGL/Content/nullTexture.xnb","TextureProcessor","Texture2DContent",175,1109,0.2299858
