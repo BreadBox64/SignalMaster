@@ -57,29 +57,26 @@ public class UIIconButton : UIElement {
 	private bool pressed, hovered;
 	private Tweener tweener;
 	public float tween;
+	private Action action;
 
-
-	public UIIconButton((string t0, string t1, string t2) textures, (int x, int y, int w, int h) _bounds, bool boundCentered = false) {
+	public UIIconButton(Action _action, (string t0, string t1, string t2) textures, (int x, int y, int w, int h) _bounds, bool boundCentered = false, bool positionCentered = false) {
 		texPressed = UIManager.GetTexture(textures.t0);
 		texHovered = UIManager.GetTexture(textures.t1);
 		texUnpressed = UIManager.GetTexture(textures.t2);
-		if(!boundCentered) {
-			bounds = _bounds;
-		} else {
-			(int x, int y) center = UIManager.GetCenterCoord();
-			(int w, int h) halfSize = (_bounds.w >> 1, _bounds.h >> 1);
-			bounds = (center.x - halfSize.w, center.y - halfSize.h, _bounds.w, _bounds.h);
-		}
+		bounds = positionCentered ? (UIManager.GetCenterCoord().x + _bounds.x, UIManager.GetCenterCoord().y + _bounds.y, _bounds.w, _bounds.h) : _bounds;
+		bounds = boundCentered ? (bounds.x - (bounds.w >> 1), bounds.y - (bounds.h >> 1), bounds.w, bounds.h) : bounds;
 		tweener = new Tweener();
 		tween = 0f;
 		pressed = false;
+		action = _action;
 	}
 
 	public override void Update(GameTime gameTime) {
 		Vector2 mousePos = Mouse.GetState().Position.ToVector2();
 		bool _hovered = hovered;
 		hovered = UI.InBounds(mousePos, bounds);
-		pressed = Mouse.GetState().LeftButton == ButtonState.Pressed;
+		pressed = (Mouse.GetState().LeftButton == ButtonState.Pressed) && hovered;
+		if(pressed) action();
 		tweener.Update(gameTime.GetElapsedSeconds());
 		if(_hovered != hovered) {
 			if(tween == 0f) {
@@ -115,6 +112,7 @@ public class UIManager {
 	public static Dictionary<string, Texture2D> textures;
 	private static Texture2D nullTexture;
 	private List<UIElement> UIElements;
+	private List<Action> preUpdateActions;
 
 	public UIManager(Game1 game1, GraphicsDeviceManager graphics1) {
 		game = game1;
@@ -122,6 +120,7 @@ public class UIManager {
 		fonts = new Dictionary<string, SpriteFont>();
 		textures = new Dictionary<string, Texture2D>();
 		UIElements = new List<UIElement>();
+		preUpdateActions = new List<Action>();
 	}
 
 	public static void Init(SpriteBatch sb, ContentManager cm) {
@@ -173,7 +172,23 @@ public class UIManager {
 		UIElements.Add(element);
 	}
 
+	public void ClearUIElements() {
+		UIElements.Clear();
+	}
+
+	public void AddPreUpdateActions(Action[] actions) {
+		foreach(Action action in actions) {
+			preUpdateActions.Add(action);
+		}
+	}
+
 	public void Update(GameTime gameTime) {
+		if(preUpdateActions.Count != 0) {
+			foreach(Action action in preUpdateActions) {
+				action();
+			}
+			preUpdateActions.Clear();
+		}
 		foreach(UIElement element in UIElements) {
 			element.Update(gameTime);
 		}

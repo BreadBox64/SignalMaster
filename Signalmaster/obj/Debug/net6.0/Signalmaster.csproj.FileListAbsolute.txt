@@ -33,3 +33,6 @@ E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\nullTexture.xnb
 E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconPlayClick.xnb
 E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconPlayHover.xnb
 E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconPlayNormal.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconExitClick.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconExitHover.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconExitNormal.xnb

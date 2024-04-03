@@ -48,7 +48,7 @@ public class Game1 : Game {
 		_graphics.PreferredBackBufferHeight = _height;
 		_graphics.HardwareModeSwitch = false;
 		_graphics.ApplyChanges();
-		//_graphics.ToggleFullScreen();
+		_graphics.ToggleFullScreen();
 		currentScene = Scene.Menu;
 		UIManager.SetScreenSize(_width, _height);
 		ChangeScene(Scene.Menu);
@@ -63,6 +63,7 @@ public class Game1 : Game {
 		// Load Fonts
 		UIManager.LoadSpriteFonts(new string[] {"JS64"});
 		UIManager.LoadTextures(new string[] {"iconPlayClick", "iconPlayHover", "iconPlayNormal"});
+		UIManager.LoadTextures(new string[] {"iconExitClick", "iconExitHover", "iconExitNormal"});
 		JS64 = UIManager.GetFont("JS64");
 	}
 
@@ -74,16 +75,29 @@ public class Game1 : Game {
 		base.Update(gameTime);
 	}
 
-	private void ChangeScene(Scene newScene) {
+	public Action GenerateSceneChangeAction(Scene newScene) {
+		return () => {
+			_UIManager.AddPreUpdateActions(new Action[] {
+				_UIManager.ClearUIElements,
+				() => {
+					ChangeScene(newScene);
+				}
+			});
+		};
+	}
+
+	public void ChangeScene(Scene newScene) {
 		switch(newScene) {
 			case Scene.Menu:
-				_UIManager.AddUIElement(new UIIconButton(("iconPlayClick", "iconPlayHover", "iconPlayNormal"), (0, 0, 192, 192), true));
+				_UIManager.AddUIElement(new UIIconButton(GenerateSceneChangeAction(Scene.Main), ("iconPlayClick", "iconPlayHover", "iconPlayNormal"), (0, 0, 192, 192), true, true));
+				_UIManager.AddUIElement(new UIIconButton(Exit, ("iconExitClick", "iconExitHover", "iconExitNormal"), (256, 0, 128, 128), true, true));
 				break;
 			case Scene.Main:
 				break;
 			case Scene.Settings:
 				break;
 		}
+		currentScene = newScene;
 	}
 
 	private void DrawMenuScene(GameTime gameTime) {
@@ -105,6 +119,7 @@ public class Game1 : Game {
 				DrawMenuScene(gameTime);
 				break;
 			case Scene.Main:
+				GraphicsDevice.Clear(Color.Blue);
 				break;
 			case Scene.Settings:
 				break;
