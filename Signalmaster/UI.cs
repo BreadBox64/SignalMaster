@@ -17,8 +17,8 @@ using MonoGame.Extended.Collections;
 namespace Signalmaster;
 
 public static class UI {
-	static readonly Color colorBackground = new(50, 50, 50);
-	static readonly Color colorDisabled = new(100, 100, 100);
+	public static readonly Color colorBackground = new(50, 50, 50);
+	public static readonly Color colorSecondary = new(125, 125, 125);
 
 	public static bool InBounds(Vector2 pos, (int x, int y, int w, int h) bounds) {
 		int relX = (int)pos.X - bounds.x; // Relative x & y coords
@@ -52,12 +52,12 @@ public class UIElement {
 }
 
 public class UIIconButton : UIElement {
-	private Texture2D texPressed, texHovered, texUnpressed;
+	private readonly Texture2D texPressed, texHovered, texUnpressed;
 	private (int x, int y, int w, int h) bounds;
 	private bool pressed, hovered;
-	private Tweener tweener;
+	private readonly Tweener tweener;
 	public float tween;
-	private Action action;
+	private readonly Action action;
 
 	public UIIconButton(Action _action, (string t0, string t1, string t2) textures, (int x, int y, int w, int h) _bounds, bool boundCentered = false, bool positionCentered = false) {
 		texPressed = UIManager.GetTexture(textures.t0);
@@ -80,19 +80,19 @@ public class UIIconButton : UIElement {
 		tweener.Update(gameTime.GetElapsedSeconds());
 		if(_hovered != hovered) {
 			if(tween == 0f) {
-				tweener.TweenTo(this, player => tween, 1f, 0.5f).Easing(EasingFunctions.SineInOut);
+				tweener.TweenTo(this, player => tween, 2f, 0.25f).Easing(EasingFunctions.SineInOut);
 			} else {
 				tweener.CancelAll();
 				tweener.Dispose();
-				tweener.TweenTo(this, player => tween, 0f, tween/2).Easing(EasingFunctions.SineInOut);
+				tweener.TweenTo(this, player => tween, 0f, tween/4).Easing(EasingFunctions.SineInOut);
 			}
 		}
 	}
 
 	public override void Draw() {
 		if(pressed) {UIManager.spriteBatch.Draw(texPressed, UI.ToRect(bounds), Color.White); return;}
-		UIManager.spriteBatch.Draw(texUnpressed, UI.ToRect(bounds), Color.White * (1-tween));
-		UIManager.spriteBatch.Draw(texHovered, UI.ToRect(bounds), Color.White * tween);
+		UIManager.spriteBatch.Draw(texUnpressed, UI.ToRect(bounds), Color.White * Math.Max(2f-tween, 0f));
+		UIManager.spriteBatch.Draw(texHovered, UI.ToRect(bounds), Color.White * Math.Min(tween, 1f));
 	}
 }
 
@@ -102,10 +102,42 @@ public class UIAnimatedButton : UIElement {
 	}
 }
 
+public class UISceneTransition : UIElement {
+	private readonly Game1.Scene scene;
+	private readonly Tweener tweener;
+	public float tween;
+	private bool transitioned;
+	private readonly int w, h;
+	private readonly Action transitonAction;
+
+	public UISceneTransition(Game1.Scene _scene, Action _transitonAction, Action<Tween> endAction) {
+		scene = _scene;
+		tween = 0f;
+		tweener = new Tweener();
+		tweener.TweenTo(this, player => tween, 2f, 0.75f).Easing(EasingFunctions.SineInOut).OnEnd(endAction);
+		transitioned = false;
+		w = UIManager.width;
+		h = UIManager.height;
+		transitonAction = _transitonAction;
+	}
+
+	public override void Update(GameTime gameTime) {
+		tweener.Update(gameTime.GetElapsedSeconds());
+		if(tween > 1f && !transitioned) {
+			transitonAction();
+			transitioned = true;
+		}
+	}
+
+	public override void Draw() {
+		UIManager.spriteBatch.FillRectangle(0f, Math.Max(1f - tween, 0f) * h, w, Math.Min(tween, 2f - tween) * h, UI.colorSecondary);
+	}
+}
+
 public class UIManager {
 	private static Game1 game;
 	private static GraphicsDeviceManager graphics;
-	private static int width, height;
+	public static int width, height;
 	public static SpriteBatch spriteBatch;
 	private static ContentManager contentManager;
 	public static Dictionary<string, SpriteFont> fonts;
@@ -113,6 +145,7 @@ public class UIManager {
 	private static Texture2D nullTexture;
 	private List<UIElement> UIElements;
 	private List<Action> preUpdateActions;
+	private UISceneTransition sceneTransition;
 
 	public UIManager(Game1 game1, GraphicsDeviceManager graphics1) {
 		game = game1;
@@ -176,6 +209,25 @@ public class UIManager {
 		UIElements.Clear();
 	}
 
+	public Action AddSceneTransition(Game1.Scene scene) {
+		return () => {
+			sceneTransition = new(scene, () => {
+				AddPreUpdateActions(new Action[] {
+					ClearUIElements,
+					() => {
+						game.ChangeScene(scene);
+					}
+				});
+			}, (tween) => {
+				sceneTransition = null;
+			});
+		};
+	}
+
+	public void AddPreUpdateAction(Action action) {
+		preUpdateActions.Add(action);
+	}
+
 	public void AddPreUpdateActions(Action[] actions) {
 		foreach(Action action in actions) {
 			preUpdateActions.Add(action);
@@ -192,11 +244,13 @@ public class UIManager {
 		foreach(UIElement element in UIElements) {
 			element.Update(gameTime);
 		}
+		sceneTransition?.Update(gameTime);
 	}
 	
 	public void Draw() {
 		foreach(UIElement element in UIElements) {
 			element.Draw();
 		}
+		sceneTransition?.Draw();
 	}
 }

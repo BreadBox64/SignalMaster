@@ -13,10 +13,8 @@ public class Game1 : Game {
 		Menu,
 		Main,
 		Settings,
+		Exit,
 	}
-
-	static readonly Color colorBackground = new Color(50, 50, 50);
-	static readonly Color colorDisabled = new Color(100, 100, 100);
 
 	static SpriteFont JS64;
 
@@ -75,38 +73,21 @@ public class Game1 : Game {
 		base.Update(gameTime);
 	}
 
-	public Action GenerateSceneChangeAction(Scene newScene) {
-		return () => {
-			_UIManager.AddPreUpdateActions(new Action[] {
-				_UIManager.ClearUIElements,
-				() => {
-					ChangeScene(newScene);
-				}
-			});
-		};
-	}
-
 	public void ChangeScene(Scene newScene) {
 		switch(newScene) {
 			case Scene.Menu:
-				_UIManager.AddUIElement(new UIIconButton(GenerateSceneChangeAction(Scene.Main), ("iconPlayClick", "iconPlayHover", "iconPlayNormal"), (0, 0, 192, 192), true, true));
-				_UIManager.AddUIElement(new UIIconButton(Exit, ("iconExitClick", "iconExitHover", "iconExitNormal"), (256, 0, 128, 128), true, true));
+				_UIManager.AddUIElement(new UIIconButton(_UIManager.AddSceneTransition(Scene.Main), ("iconPlayClick", "iconPlayHover", "iconPlayNormal"), (0, 0, 192, 192), true, true));
+				_UIManager.AddUIElement(new UIIconButton(_UIManager.AddSceneTransition(Scene.Exit), ("iconExitClick", "iconExitHover", "iconExitNormal"), (256, 0, 128, 128), true, true));
 				break;
 			case Scene.Main:
 				break;
 			case Scene.Settings:
 				break;
+			case Scene.Exit:
+				Exit();
+				break;
 		}
 		currentScene = newScene;
-	}
-
-	private void DrawMenuScene(GameTime gameTime) {
-		GraphicsDevice.Clear(colorBackground);
-		string title = "SignalMaster";
-		_spriteBatch.Begin();
-    _spriteBatch.DrawString(JS64, title, new Vector2((_width - JS64.MeasureString(title).X) / 2, 192), Color.White);
-		_UIManager.Draw();
-    _spriteBatch.End();
 	}
 
 	protected override void Draw(GameTime gameTime)	{
@@ -116,12 +97,23 @@ public class Game1 : Game {
 
 		switch(currentScene) {
 			case Scene.Menu:
-				DrawMenuScene(gameTime);
+				GraphicsDevice.Clear(UI.colorBackground);
+				_spriteBatch.Begin();
+				_spriteBatch.DrawString(JS64, "SignalMaster", new Vector2((_width - JS64.MeasureString("SignalMaster").X) / 2, 192), Color.White);
+				_UIManager.Draw();
+				_spriteBatch.End();
 				break;
 			case Scene.Main:
 				GraphicsDevice.Clear(Color.Blue);
+				_spriteBatch.Begin();
+				_UIManager.Draw();
+				_spriteBatch.End();
 				break;
 			case Scene.Settings:
+				GraphicsDevice.Clear(UI.colorBackground);
+				_spriteBatch.Begin();
+				_UIManager.Draw();
+				_spriteBatch.End();
 				break;
 			default:
 				GraphicsDevice.Clear(Color.Red);
