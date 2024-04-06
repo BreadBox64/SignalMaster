@@ -10,10 +10,16 @@
     <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconPlayClick.png</File>
     <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconPlayHover.png</File>
     <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconPlayNormal.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconSettingsClick.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconSettingsHover.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconSettingsNormal.png</File>
     <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/JS64.spritefont</File>
     <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/nullTexture.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

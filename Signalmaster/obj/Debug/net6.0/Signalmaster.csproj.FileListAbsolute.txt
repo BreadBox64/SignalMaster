@@ -73,3 +73,6 @@ C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signal
 C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\obj\Debug\net6.0\Signalmaster.pdb
 C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\obj\Debug\net6.0\Signalmaster.genruntimeconfig.cache
 C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\obj\Debug\net6.0\ref\Signalmaster.dll
+C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\iconSettingsClick.xnb
+C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\iconSettingsHover.xnb
+C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\iconSettingsNormal.xnb

@@ -1,24 +1,17 @@
 using System;
 using System.Collections.Generic;
-using System.Reflection.Metadata;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
-using MonoGame.Extended.Content;
-using MonoGame.Extended.Sprites;
-using MonoGame.Extended.Animations;
-using MonoGame.Extended.Input;
 using MonoGame.Extended.Tweening;
-using System.Linq;
-using MonoGame.Extended.Collections;
 
 namespace Signalmaster;
 
 public static class UI {
-	public static readonly Color colorBackground = new(50, 50, 50);
-	public static readonly Color colorSecondary = new(125, 125, 125);
+	public static readonly Color colorBackground = new(75, 75, 75);
+	public static readonly Color colorSecondary = new(25, 25, 25);
 
 	public static bool InBounds(Vector2 pos, (int x, int y, int w, int h) bounds) {
 		int relX = (int)pos.X - bounds.x; // Relative x & y coords
@@ -59,11 +52,31 @@ public class UIIconButton : UIElement {
 	public float tween;
 	private readonly Action action;
 
-	public UIIconButton(Action _action, (string t0, string t1, string t2) textures, (int x, int y, int w, int h) _bounds, bool boundCentered = false, bool positionCentered = false) {
+	public UIIconButton(Action _action, (string t0, string t1, string t2) textures, (int x, int y, int w, int h) _bounds, (int x, int y) positionBasis, bool boundCentered = false) {
 		texPressed = UIManager.GetTexture(textures.t0);
 		texHovered = UIManager.GetTexture(textures.t1);
 		texUnpressed = UIManager.GetTexture(textures.t2);
-		bounds = positionCentered ? (UIManager.GetCenterCoord().x + _bounds.x, UIManager.GetCenterCoord().y + _bounds.y, _bounds.w, _bounds.h) : _bounds;
+		bounds = _bounds;
+		switch(positionBasis.x) {
+			case 0:
+				break;
+			case 1:
+				bounds.x = UIManager.GetCenterCoord().x + bounds.x;
+				break;
+			case 2:
+				bounds.x = UIManager.width - (bounds.x + bounds.w);
+				break;
+		}
+		switch(positionBasis.y) {
+			case 0:
+				break;
+			case 1:
+				bounds.y = UIManager.GetCenterCoord().y + bounds.y;
+				break;
+			case 2:
+				bounds.y = UIManager.height - (bounds.y + bounds.h);
+				break;
+		}
 		bounds = boundCentered ? (bounds.x - (bounds.w >> 1), bounds.y - (bounds.h >> 1), bounds.w, bounds.h) : bounds;
 		tweener = new Tweener();
 		tween = 0f;
@@ -103,15 +116,13 @@ public class UIAnimatedButton : UIElement {
 }
 
 public class UISceneTransition : UIElement {
-	private readonly Game1.Scene scene;
 	private readonly Tweener tweener;
 	public float tween;
 	private bool transitioned;
 	private readonly int w, h;
 	private readonly Action transitonAction;
 
-	public UISceneTransition(Game1.Scene _scene, Action _transitonAction, Action<Tween> endAction) {
-		scene = _scene;
+	public UISceneTransition(Action _transitonAction, Action<Tween> endAction) {
 		tween = 0f;
 		tweener = new Tweener();
 		tweener.TweenTo(this, player => tween, 2f, 0.75f).Easing(EasingFunctions.SineInOut).OnEnd(endAction);
@@ -211,7 +222,7 @@ public class UIManager {
 
 	public Action AddSceneTransition(Game1.Scene scene) {
 		return () => {
-			sceneTransition = new(scene, () => {
+			sceneTransition = new(() => {
 				AddPreUpdateActions(new Action[] {
 					ClearUIElements,
 					() => {
