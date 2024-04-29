@@ -1,0 +1,35 @@
+<INFO>
+Default Name
+<comments>
+Everything after the name in the info section is ignored and can thus be used for comments.
+If there are issues with trains having bogeys displaced incorrectly, it is possible
+the spawn track is too short for the requested length of train: try increasing it.
+<TRACK>
+#UP-A|0|#|-10000,-10000|-40,-40|A0
+A0|0|#UP-A|-40,-40|60,60|A1
+A1|0|A0|60,60|60,425|&A1
+&A1|0|A1|60,425|60,450|&A2
+&B2-l|0|&A1|60,450|85,450|B2
+&A2|0|&A1|60,450|77.677,467.677|A2
+B2|0|&B2-l|85,450|1375,450|&B2-r
+A2|0|&A2|77.677,467.677|100,490|A3
+A3|0|A2|100,490|1360,490|A4
+A4|0|A3|1360,490|1383.323,467.677|&A4
+&A4|0|A4|1383.323,467.677|1400,450|&A5
+&B2-r|0|B2|1375,450|1400,450|&A5
+&A5|0|&A4|1400,450|1425,450|A5
+A5|0|&A5|1425,450|1700,450|#DOWN-A
+#DOWN-A|0|A5|1700,450|5000,450|#
+<SWITCH>
+60,450|0|true|&A1|&A2|&B2-l
+1400,450|0|false|&A5|&A4|&B2-r
+<SIGNAL>
+<STATION>
+Test Station|A3|B2
+<SPAWN>
+0000|false|0|5|75|#DOWN-A|Test Station-2-0|#UP-A
+0005|true|0|10|75|#UP-A|#DOWN-A
+0018|false|0|6|75|#DOWN-A|#UP-A
+0055|true|0|45|75|#UP-A|#DOWN-A
+0110|false|0|2|75|#DOWN-A|#UP-A
+<END>

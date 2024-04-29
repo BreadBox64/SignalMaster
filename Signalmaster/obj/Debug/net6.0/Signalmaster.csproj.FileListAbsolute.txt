@@ -76,3 +76,17 @@ C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signal
 C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\iconSettingsClick.xnb
 C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\iconSettingsHover.xnb
 C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\iconSettingsNormal.xnb
+C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\FXAA.xnb
+C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\test.xnb
+C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseNormal.xnb
+C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\JS24.xnb
+C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\iconBase.xnb
+C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseE.xnb
+C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseN.xnb
+C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseNE.xnb
+C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseNW.xnb
+C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseS.xnb
+C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseSE.xnb
+C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseSW.xnb
+C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseW.xnb
+C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\trainCar.xnb

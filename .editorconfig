@@ -1,3 +1,5 @@
 #  CSharp formatting rules:
 [*.cs]
 csharp_new_line_before_open_brace = none
+dotnet_diagnostic.CA2211.severity = none
+dotnet_diagnostic.IDE0044.severity = silent

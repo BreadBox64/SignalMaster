@@ -1,6 +1,0 @@
-<INFO>
-Default Name
-<SPAWN>
-0030|P-N|75|UP0|ST0-0,1|DOWN0
-<TRACK>
-UP0|
