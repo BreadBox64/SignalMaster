@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection.Metadata;
+using System.Linq;
+using System.Linq.Expressions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -13,28 +14,31 @@ public class Game1 : Game {
 		Menu,
 		Main,
 		Settings,
+		Exit,
 	}
 
-	static readonly Color colorBackground = new Color(50, 50, 50);
-	static readonly Color colorDisabled = new Color(100, 100, 100);
-
-	static SpriteFont JS64;
+	public static SpriteFont JS64, JS24;
 
 	public Scene currentScene;
 	private int _width;
 	private int _height;
-	private double _frameDelta;
-	private double _elapsedTime;
-	private MouseState _oldMouseState;
 	private GraphicsDeviceManager _graphics;
 	private SpriteBatch _spriteBatch;
 	private UIManager _UIManager;
+	private GameManager _GameManager;
+	private Action backAction;
+	public static bool sceneTransitionActive;
+	public static int score;
 
 	public Game1() {
 		_graphics = new GraphicsDeviceManager(this);
 		_UIManager = new UIManager(this, _graphics);
+		_GameManager = new GameManager(_graphics);
 		Content.RootDirectory = "Content";
 		IsMouseVisible = true;
+		sceneTransitionActive = false;
+		backAction = () => {};
+		score = 0;
 	}
 
 	protected override void Initialize() {
@@ -42,18 +46,15 @@ public class Game1 : Game {
 		base.Initialize();
 		_width = _graphics.GraphicsDevice.Adapter.CurrentDisplayMode.Width;
 		_height = _graphics.GraphicsDevice.Adapter.CurrentDisplayMode.Height;
-		_frameDelta = 0;
-		_elapsedTime = 0;
 		_graphics.PreferredBackBufferWidth = _width;
 		_graphics.PreferredBackBufferHeight = _height;
 		_graphics.HardwareModeSwitch = false;
 		_graphics.ApplyChanges();
-		_graphics.ToggleFullScreen();
+		if(!System.Diagnostics.Debugger.IsAttached) _graphics.ToggleFullScreen();
 		currentScene = Scene.Menu;
 		UIManager.SetScreenSize(_width, _height);
+		_GameManager.SetMap("map0");
 		ChangeScene(Scene.Menu);
-
-		_oldMouseState = Mouse.GetState();
 	}
 
 	protected override void LoadContent()	{
@@ -61,76 +62,72 @@ public class Game1 : Game {
 		UIManager.Init(_spriteBatch, Content);
 
 		// Load Fonts
-		UIManager.LoadSpriteFonts(new string[] {"JS64"});
+		UIManager.LoadSpriteFonts(new string[] {"JS64", "JS24"});
+		string[] dirs = {"N", "NE", "E", "SE", "S", "SW", "W", "NW"};
+		UIManager.LoadTextures(dirs.Select(e => "iconBase" + e).ToArray());
+		UIManager.LoadTextures(new string[] {"trainCar"});
 		UIManager.LoadTextures(new string[] {"iconPlayClick", "iconPlayHover", "iconPlayNormal"});
 		UIManager.LoadTextures(new string[] {"iconExitClick", "iconExitHover", "iconExitNormal"});
+		UIManager.LoadTextures(new string[] {"iconSettingsClick", "iconSettingsHover", "iconSettingsNormal"});
 		JS64 = UIManager.GetFont("JS64");
+		JS24 = UIManager.GetFont("JS24");
+
+		_GameManager.LoadMapFiles();
 	}
 
 	protected override void Update(GameTime gameTime)	{
-		if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-			Exit();
-
+		if(GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))	backAction();
+		if(currentScene == Scene.Main) _GameManager.Update(gameTime);
 		_UIManager.Update(gameTime);
 		base.Update(gameTime);
-	}
-
-	public Action GenerateSceneChangeAction(Scene newScene) {
-		return () => {
-			_UIManager.AddPreUpdateActions(new Action[] {
-				_UIManager.ClearUIElements,
-				() => {
-					ChangeScene(newScene);
-				}
-			});
-		};
 	}
 
 	public void ChangeScene(Scene newScene) {
 		switch(newScene) {
 			case Scene.Menu:
-				_UIManager.AddUIElement(new UIIconButton(GenerateSceneChangeAction(Scene.Main), ("iconPlayClick", "iconPlayHover", "iconPlayNormal"), (0, 0, 192, 192), true, true));
-				_UIManager.AddUIElement(new UIIconButton(Exit, ("iconExitClick", "iconExitHover", "iconExitNormal"), (256, 0, 128, 128), true, true));
+				_UIManager.AddUIElement(new UIIconButton(_UIManager.AddSceneTransition(Scene.Main), ("iconPlayClick", "iconPlayHover", "iconPlayNormal"), (1, 1), (0, 0, 192, 192), true));
+				_UIManager.AddUIElement(new UIIconButton(_UIManager.AddSceneTransition(Scene.Exit), ("iconExitClick", "iconExitHover", "iconExitNormal"), (1, 1),  (256, 0, 128, 128), true));
+				_UIManager.AddUIElement(new UIIconButton(_UIManager.AddSceneTransition(Scene.Settings), ("iconSettingsClick", "iconSettingsHover", "iconSettingsNormal"), (1, 1), (-256, 0, 128, 128), true));
+				backAction = _UIManager.AddSceneTransition(Scene.Exit);
 				break;
 			case Scene.Main:
+				_UIManager.AddUIElement(new UIToggleTextButton(() => {return _GameManager.GameSpeed == 0.5f;}, () => {_GameManager.GameSpeed = 0.5f;}, "Slow", JS24, (2, 0), (16, 16, 24), 8));
+				_UIManager.AddUIElement(new UIToggleTextButton(() => {return _GameManager.GameSpeed == 1.0f;}, () => {_GameManager.GameSpeed = 1.0f;}, "Normal", JS24, (2, 0), (16, 96, 24), 8));
+				_UIManager.AddUIElement(new UIToggleTextButton(() => {return _GameManager.GameSpeed == 2.0f;}, () => {_GameManager.GameSpeed = 2.0f;}, "Fast", JS24, (2, 0), (16, 176, 24), 8));
+				backAction = _UIManager.AddSceneTransition(Scene.Menu);
 				break;
 			case Scene.Settings:
+				_UIManager.AddUIElement(new UIIconButton(_UIManager.AddSceneTransition(Scene.Menu), ("iconExitClick", "iconExitHover", "iconExitNormal"), (2, 0), (16, 16, 96, 96)));
+				_UIManager.AddUIElement(new UITextButton(_GameManager.ReloadMapFiles, "Reload Maps", JS24, (0, 0), (16, 16, 24), 8));
+				backAction = _UIManager.AddSceneTransition(Scene.Menu);
+				break;
+			case Scene.Exit:
+				Exit();
 				break;
 		}
 		currentScene = newScene;
 	}
 
-	private void DrawMenuScene(GameTime gameTime) {
-		GraphicsDevice.Clear(colorBackground);
-		string title = "SignalMaster";
-		_spriteBatch.Begin();
-    _spriteBatch.DrawString(JS64, title, new Vector2((_width - JS64.MeasureString(title).X) / 2, 192), Color.White);
-		_UIManager.Draw();
-    _spriteBatch.End();
-	}
-
 	protected override void Draw(GameTime gameTime)	{
-		double newElapsed = (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-		_frameDelta = newElapsed - _elapsedTime;
-		_elapsedTime = newElapsed;
-
+		GraphicsDevice.Clear(UI.colorBackground);
+		_spriteBatch.Begin();
 		switch(currentScene) {
 			case Scene.Menu:
-				DrawMenuScene(gameTime);
+				_spriteBatch.DrawString(JS64, "SignalMaster", new Vector2((_width - JS64.MeasureString("SignalMaster").X) / 2, 192), Color.White);
 				break;
 			case Scene.Main:
-				GraphicsDevice.Clear(Color.Blue);
+				_GameManager.Draw();
+				_spriteBatch.DrawString(JS24, $"Score: {score}", new Vector2(8, _height - 36), Color.White);
 				break;
 			case Scene.Settings:
 				break;
 			default:
-				GraphicsDevice.Clear(Color.Red);
-				_spriteBatch.Begin();
-				_spriteBatch.DrawString(JS64, "Uh oh", new Vector2(0, 0), Color.Black);
-				_spriteBatch.End();
+				_spriteBatch.DrawString(JS64, "Uh oh", new Vector2(0, 0), Color.White);	
 				break;
 		}
-		
+		_UIManager.Draw();
+		_spriteBatch.End();
+
 		base.Draw(gameTime);
 	}
 }

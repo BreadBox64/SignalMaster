@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Signalmaster")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73e4ef7e515b8ce8253e03dbced66b46543686da")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Signalmaster")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Signalmaster")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

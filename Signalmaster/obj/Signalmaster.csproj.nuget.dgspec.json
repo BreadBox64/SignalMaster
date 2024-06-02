@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "E:\\CSP_Signalmaster\\Signalmaster\\Signalmaster.csproj": {}
+    "C:\\Users\\s51626\\OneDrive - Park Hill School District\\Desktop\\SignalMaster\\Signalmaster\\Signalmaster.csproj": {}
   },
   "projects": {
-    "E:\\CSP_Signalmaster\\Signalmaster\\Signalmaster.csproj": {
+    "C:\\Users\\s51626\\OneDrive - Park Hill School District\\Desktop\\SignalMaster\\Signalmaster\\Signalmaster.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CSP_Signalmaster\\Signalmaster\\Signalmaster.csproj",
+        "projectUniqueName": "C:\\Users\\s51626\\OneDrive - Park Hill School District\\Desktop\\SignalMaster\\Signalmaster\\Signalmaster.csproj",
         "projectName": "Signalmaster",
-        "projectPath": "E:\\CSP_Signalmaster\\Signalmaster\\Signalmaster.csproj",
-        "packagesPath": "C:\\Users\\eli13\\.nuget\\packages\\",
-        "outputPath": "E:\\CSP_Signalmaster\\Signalmaster\\obj\\",
+        "projectPath": "C:\\Users\\s51626\\OneDrive - Park Hill School District\\Desktop\\SignalMaster\\Signalmaster\\Signalmaster.csproj",
+        "packagesPath": "C:\\Users\\s51626\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\s51626\\OneDrive - Park Hill School District\\Desktop\\SignalMaster\\Signalmaster\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "E:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\eli13\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\s51626\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -87,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.420\\RuntimeIdentifierGraph.json"
         }
       }
     }

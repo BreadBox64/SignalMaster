@@ -1,1 +1,2 @@
 Thanks to Santiago Orozco for the Josefin Sans Font [https://fonts.google.com/specimen/Josefin+Sans]
+Thanks to Google for the Material Icons Set [https://fonts.google.com/icons] (Files were modified for this project)

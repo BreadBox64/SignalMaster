@@ -4,16 +4,44 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconExitClick.png</File>
-    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconExitHover.png</File>
-    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconExitNormal.png</File>
-    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconPlayClick.png</File>
-    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconPlayHover.png</File>
-    <File>E:/CSP_Signalmaster/Signalmaster/Content/iconPlayNormal.png</File>
-    <File>E:/CSP_Signalmaster/Signalmaster/Content/JS64.spritefont</File>
-    <File>E:/CSP_Signalmaster/Signalmaster/Content/nullTexture.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconBase.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconBaseE.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconBaseN.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconBaseNE.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconBaseNW.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconBaseS.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconBaseSE.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconBaseSW.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconBaseW.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconExitClick.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconExitHover.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconExitNormal.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconPlayClick.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconPlayHover.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconPlayNormal.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconSettingsClick.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconSettingsHover.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/iconSettingsNormal.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/JS24.spritefont</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/JS64.spritefont</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/nullTexture.png</File>
+    <File>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/trainCar.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
