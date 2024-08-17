@@ -156,7 +156,7 @@ public class UITextButton : UIButton {
 	protected int padding;
 
 	///<summary>
-	///An animated button containing the given text. Must be renderered through a <c>UIManager</c>
+	///An animated button containing the given text. Must be rendered through a <c>UIManager</c>
 	///</summary>
 	///<param name="_action">The action to be executed upon the button being clicked.</param>
 	///<param name="_buttonText">The text to be displayed within the button.</param>
@@ -256,153 +256,27 @@ public class UISceneTransition : UIElement {
 	public float tween;
 	private bool transitioned;
 	private readonly int w, h;
-	private readonly Action transitonAction;
+	private readonly Action transitionAction;
 
-	public UISceneTransition(Action _transitonAction, Action<Tween> endAction) {
+	public UISceneTransition(Action _transitionAction, Action<Tween> endAction) {
 		tween = 0f;
 		tweener = new Tweener();
 		tweener.TweenTo(this, player => tween, 2f, 0.75f).Easing(EasingFunctions.SineInOut).OnEnd(endAction);
 		transitioned = false;
 		w = UIManager.width;
 		h = UIManager.height;
-		transitonAction = _transitonAction;
+		transitionAction = _transitionAction;
 	}
 
 	public override void Update(GameTime gameTime) {
 		tweener.Update(gameTime.GetElapsedSeconds());
 		if(tween > 1f && !transitioned) {
-			transitonAction();
+			transitionAction();
 			transitioned = true;
 		}
 	}
 
 	public override void Draw() {
 		UIManager.spriteBatch.FillRectangle(0f, Math.Max(1f - tween, 0f) * h, w, Math.Min(tween, 2f - tween) * h, UI.colorSecondary);
-	}
-}
-
-public class UIManager {
-	private static Game1 game;
-	public static GraphicsDeviceManager graphics;
-	public static int width, height;
-	public static SpriteBatch spriteBatch;
-	private static ContentManager contentManager;
-	public static Dictionary<string, SpriteFont> fonts;
-	public static Dictionary<string, Texture2D> textures;
-	public static Texture2D nullTexture;
-	private List<UIElement> UIElements;
-	private List<Action> preUpdateActions;
-	private UISceneTransition sceneTransition;
-
-	public UIManager(Game1 game1, GraphicsDeviceManager graphics1) {
-		game = game1;
-		graphics = graphics1;
-		fonts = new Dictionary<string, SpriteFont>();
-		textures = new Dictionary<string, Texture2D>();
-		UIElements = new List<UIElement>();
-		preUpdateActions = new List<Action>();
-	}
-
-	public static void Init(SpriteBatch sb, ContentManager cm) {
-		spriteBatch = sb;
-		contentManager = cm;
-		nullTexture = contentManager.Load<Texture2D>("nullTexture");
-		//FXAA = contentManager.Load<Effect>("FXAA");
-	}
-
-	public static void SetScreenSize(int w, int h) {
-		(width, height) = (w, h);
-	}
-
-	// Content Loading Methods
-
-	public static void LoadSpriteFonts(string[] fontNames) {
-		foreach(string fontName in fontNames) {
-			fonts.Add(fontName, contentManager.Load<SpriteFont>(fontName));
-		}
-	}
-
-	public static void LoadTextures(string[] textureNames) {
-		foreach(string textureName in textureNames) {
-			textures.Add(textureName, contentManager.Load<Texture2D>(textureName));
-		}
-	}
-
-	// Getter/Setter Methods
-
-	public static SpriteFont GetFont(string fontName) {
-		return fonts[fontName];
-	}
-
-	public static Texture2D GetTexture(string textureName) {
-		try	{
-			return textures[textureName];
-		}	catch (KeyNotFoundException) {
-			Console.WriteLine($"<WARNING> Texture {textureName} is null, using default.");
-			return nullTexture;
-		}
-	}
-
-	public static (int x, int y) GetCenterCoord() {
-		return (width >> 1, height >> 1);
-	}
-
-	// Usage Methods
-
-	public void AddUIElement(UIElement element) {
-		UIElements.Add(element);
-	}
-
-	public void ClearUIElements() {
-		UIElements.Clear();
-	}
-
-	public Action AddSceneTransition(Game1.Scene scene) {
-		return () => {
-			if(!Game1.sceneTransitionActive) {
-				Game1.sceneTransitionActive = true;
-				sceneTransition = new(() => {
-					AddPreUpdateActions(new Action[] {
-						ClearUIElements,
-						() => {
-							game.ChangeScene(scene);
-						}
-					});
-				}, (tween) => {
-					sceneTransition = null;
-					Game1.sceneTransitionActive = false;
-				});
-			}
-		};
-	}
-
-	public void AddPreUpdateAction(Action action) {
-		preUpdateActions.Add(action);
-	}
-
-	public void AddPreUpdateActions(Action[] actions) {
-		foreach(Action action in actions) {
-			preUpdateActions.Add(action);
-		}
-	}
-
-	public void Update(GameTime gameTime) {
-		if(preUpdateActions.Count != 0) {
-			foreach(Action action in preUpdateActions) {
-				action();
-			}
-			preUpdateActions.Clear();
-		}
-		foreach(UIElement element in UIElements) {
-			element.Update(gameTime);
-		}
-		sceneTransition?.Update(gameTime);
-	}
-	
-	public void Draw() {
-		foreach(UIElement element in UIElements) {
-			element.Draw();
-		}
-		sceneTransition?.Draw();
 	}
 }

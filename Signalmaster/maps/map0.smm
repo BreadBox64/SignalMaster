@@ -1,0 +1,53 @@
+t
+<INFO>
+Map0
+// Every line which begins with a double-backslash '//' is not interpreted and can be used as a comment or spacing
+<TRACK>
+#UP-A|0|#|-10000,-10000|-40,-40|A0
+A0|0|#UP-A|-40,-40|60,60|A1
+A1|0|A0|60,60|60,425|&A1
+//
+#UP-C|0|#|-10000,475|-40,475|C0
+C0|0|#UP-C|-40,475|60,475|&C0-s
+//
+&A1|0|A1|60,425|60,450|&A2
+&C0-d|0|C0|60,475|85,450|&B2-l
+&C0-s|0|C0|60,475|85,475|&A2
+&B2-l|0|&A1|60,450|85,450|B2
+&A2|0|&A1|60,450|85,475|A2
+//
+B2|0|&B2-l|85,450|1375,450|&B2-r
+A2|0|&A2|85,475|100,490|A3
+A3|0|A2|100,490|1360,490|A4
+A4|0|A3|1360,490|1375,475|&A4
+//
+&A4|0|A4|1375,475|1400,450|&A5
+&B2-r|0|B2|1375,450|1400,450|&A5
+&A5|0|&A4|1400,450|1425,450|A5
+//
+A5|0|&A5|1425,450|1700,450|#DOWN-A
+#DOWN-A|0|A5|1700,450|5000,450|#
+// If there are issues with trains having bogeys displaced incorrectly, it is possible that 
+// the spawn track is too short for the requested length of train: try increasing it.
+<SWITCH>
+#|60,450|25,25|3|0|&A1,&C0-d,&C0-s,&B2-l,&A2
+// Create new switch at position (60, 450) with 3 switch states and an initial state of 0 which includes those tracks
+&A1|true|*|&A2,&B2-l|false,&A2|true,&C0-s|false,A2|true|&A2|*,B2|true|&B2-l|*
+// Add a new switch state to the previously created switch. This switch state does the following: 1. Set track &A1 to enabled and change its endtrack to &B2-l, 2. Set track &B2-l to enabled, 3. Set track &A2 to disabled
+C0|true|*|&C0-d,&B2-l|false,&A2|false,&C0-d|true,&C0-s|false,A2|true|&A2|*,B2|true|&C0-d|*
+&A1|true|*|&B2-l,C0|true|*|&C0-s,&B2-l|true,&A2|false,&C0-d|false,&C0-s|true,A2|true|&C0-s|*,B2|true|&B2-l|*
+//
+#|1400,450|2|0|&A4,&B2-r,&A5
+&A5|true|&A4|*,&B2-r|false,&A4|true
+&A5|true|&B2-r|*,&B2-r|true,&A4|false
+<SIGNAL>
+<STATION>
+Test Station|A3|B2
+<SPAWN>
+// Spawns must *always* be in ascending time order
+0000|false|0|5|75|#DOWN-A|Test Station-2-0|#UP-A
+0005|true|0|10|75|#UP-A|#DOWN-A
+0018|false|0|6|75|#DOWN-A|#UP-A
+0055|true|0|45|75|#UP-A|#DOWN-A
+0110|false|0|2|75|#DOWN-A|#UP-A
+<END>

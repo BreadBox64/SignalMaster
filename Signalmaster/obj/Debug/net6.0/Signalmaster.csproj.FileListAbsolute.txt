@@ -90,3 +90,20 @@ C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signal
 C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseSW.xnb
 C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseW.xnb
 C:\Users\s51626\OneDrive - Park Hill School District\Desktop\SignalMaster\Signalmaster\bin\Debug\net6.0\Content\trainCar.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseNormal.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\test.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\FXAA.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconBase.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseE.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseN.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseNE.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseNW.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseS.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseSE.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseSW.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconBaseW.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconSettingsClick.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconSettingsHover.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\iconSettingsNormal.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\JS24.xnb
+E:\CSP_Signalmaster\Signalmaster\bin\Debug\net6.0\Content\trainCar.xnb

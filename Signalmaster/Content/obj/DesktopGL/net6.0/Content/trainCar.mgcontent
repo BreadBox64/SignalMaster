@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/trainCar.png</SourceFile>
-  <SourceTime>2024-04-13T16:58:28.7306987-05:00</SourceTime>
-  <DestFile>C:/Users/s51626/OneDrive - Park Hill School District/Desktop/SignalMaster/Signalmaster/Content/bin/DesktopGL/Content/trainCar.xnb</DestFile>
-  <DestTime>2024-04-13T21:23:15.9058177-05:00</DestTime>
+  <SourceFile>E:/CSP_Signalmaster/Signalmaster/Content/trainCar.png</SourceFile>
+  <SourceTime>2024-06-01T21:21:12-05:00</SourceTime>
+  <DestFile>E:/CSP_Signalmaster/Signalmaster/Content/bin/DesktopGL/Content/trainCar.xnb</DestFile>
+  <DestTime>2024-06-01T21:25:04-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T06:44:56-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
